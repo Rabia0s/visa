@@ -1,0 +1,250 @@
+/* Genel stil ayarları */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    background-image: url('https://images.pexels.com/photos/1796715/pexels-photo-1796715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); /* Arka plan fotoğrafı */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+
+/* Hareketli Yazı */
+.moving-text {
+    position: absolute;
+    top: 250px; /* Hero kısmının altına yerleştiriyoruz */
+    left: 0;
+    width: 100%; /* Yazının genişliği ekranın tamamını kapsayacak */
+    text-align: center;
+    white-space: nowrap; /* Yazının kesilmemesini sağlar */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffcc00;
+    animation: slide 33s linear infinite; /* Animasyon süresi 30 saniye */
+}
+
+/* Yazının soldan sağa kayması */
+@keyframes slide {
+    0% {
+        transform: translateX(-100%); /* Başlangıçta soldan başlar */
+    }
+    100% {
+        transform: translateX(100%); /* Bitişte sağa kaybolur */
+    }
+}
+
+
+
+
+
+/* Navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7); /* Şeffaf siyah arka plan */
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar .nav-links li a {
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links li a:hover {
+    color: #ffcc00;
+}
+
+/* Hero */
+.hero {
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.5); /* Koyu bir renk ekleyerek yazıların okunabilirliğini artırıyoruz */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+/* Services */
+.services {
+    padding: 50px 10%;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 5;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap; /* Responsive tasarım için flex öğelerini alt satıra geçirebiliriz */
+}
+
+.card {
+    background-color: rgb(3, 33, 89);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+.about {
+    padding: 50px 10%;
+    background-color: #f9f9f9;
+    text-align: center;
+    color: #333;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.8; /* Satır aralığını artırarak daha düzenli okuma sağlanır */
+    max-width: 800px;
+    margin: 0 auto; /* Metni ortalamak için */
+    text-align: left; /* Metni sola hizalamak */
+}
+
+
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-body p {
+    font-size: 1rem;
+}
+
+/* İletişim */
+.contact {
+    background-color: #333;
+    color: white;
+    padding: 50px 10%;
+    text-align: center;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.contact input, .contact textarea {
+    padding: 10px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.contact button {
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.contact button:hover {
+    background-color: #ffaa00;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1024px) {
+    .card-container {
+        justify-content: center;
+    }
+    .card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        justify-content: center;
+    }
+    .card {
+        width: 100%;
+    }
+
+    .services {
+        padding: 50px 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+}
